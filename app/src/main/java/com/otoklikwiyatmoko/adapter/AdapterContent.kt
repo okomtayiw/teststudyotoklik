@@ -2,12 +2,16 @@ package com.otoklikwiyatmoko.adapter
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.otoklikwiyatmoko.R
+import com.otoklikwiyatmoko.activities.ActivityBlogDetail
+import com.otoklikwiyatmoko.activities.ActivityCreateBlog
+import com.otoklikwiyatmoko.activities.MainActivity
 import com.otoklikwiyatmoko.model.blogsItem
 import kotlinx.android.synthetic.main.item_blog.view.*
 
@@ -21,6 +25,7 @@ class AdapterContent(
         fun onClick(position: Int, model: blogsItem)
 
     }
+
 
     fun setOnclicklistener(onClickListener: OnClickListener) {
         this.onClickListener = onClickListener
@@ -52,8 +57,23 @@ class AdapterContent(
         }
     }
 
-    fun notifyEditItem(activity: Activity, position: Int, requestcode: Int) {
+    fun notifyEditItem(activity: Activity, position: Int, requestCode: Int) {
+        val intent = Intent(context, ActivityCreateBlog::class.java)
+        intent.putExtra( "id", list[position].id)
+        intent.putExtra("title", list[position].title)
+        intent.putExtra("content", list[position].content)
+        activity.startActivityForResult(
+            intent,
+            requestCode
+        ) // Activity is started with requestCode
         notifyItemChanged(position)
+    }
+
+    fun removeAt(position: Int) {
+        val model = list[position]
+        if(context is MainActivity){ context.deleteBlogItem(model) }
+        list.removeAt(position)
+        notifyItemRemoved(position)
     }
 
 

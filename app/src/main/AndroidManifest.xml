@@ -14,7 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Otoklikwiyatmoko">
         <activity
+            android:name=".activities.ActivityCreateBlog"
+            android:parentActivityName=".activities.MainActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.ActivityBlogDetail"
+            android:parentActivityName=".activities.MainActivity"
             android:exported="true" />
         <activity
             android:name=".activities.MainActivity"
