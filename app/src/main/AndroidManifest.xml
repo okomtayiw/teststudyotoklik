@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.otoklikwiyatmoko">
+    package="com.otoklixwiyatmoko">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".App"
+        android:name="com.otoklixwiyatmoko.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,15 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Otoklikwiyatmoko">
         <activity
-            android:name=".activities.ActivityCreateBlog"
-            android:parentActivityName=".activities.MainActivity"
+            android:name="com.otoklixwiyatmoko.activities.ActivityCreateBlog"
+            android:parentActivityName="com.otoklixwiyatmoko.activities.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.ActivityBlogDetail"
-            android:parentActivityName=".activities.MainActivity"
+            android:name="com.otoklixwiyatmoko.activities.ActivityBlogDetail"
+            android:parentActivityName="com.otoklixwiyatmoko.activities.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name="com.otoklixwiyatmoko.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
