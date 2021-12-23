@@ -21,7 +21,7 @@ class ActivityCreateBlog : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_blog)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = "Post New Content"
+        supportActionBar?.title = "Create New Content"
 
         val idBlogEdit = intent.getIntExtra("id", 0)
         val titleBlogEdit = intent.getStringExtra("title")
@@ -29,6 +29,7 @@ class ActivityCreateBlog : BaseActivity() {
 
         if(idBlogEdit != null && titleBlogEdit != null &&  contentBlogEdit != null ) {
             editData(idBlogEdit,titleBlogEdit,contentBlogEdit)
+            supportActionBar?.title = "Edit New Content"
         }
 
         btn_save.setOnClickListener {

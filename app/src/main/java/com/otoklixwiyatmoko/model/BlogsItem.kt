@@ -1,6 +1,6 @@
 package com.otoklixwiyatmoko.model
 
-data class blogsItem(
+data class BlogsItem(
     val content: String,
     val created_at: String,
     val id: Int,

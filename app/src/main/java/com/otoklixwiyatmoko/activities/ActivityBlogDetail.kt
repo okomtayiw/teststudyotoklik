@@ -20,6 +20,7 @@ class ActivityBlogDetail : BaseActivity() {
         setContentView(R.layout.activity_blog_detail)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Show a Post"
 
         val idBlogDetail = intent.getIntExtra("extra_blog_item_id", 0)
         if(idBlogDetail != null) {
@@ -35,7 +36,6 @@ class ActivityBlogDetail : BaseActivity() {
         viewModelBlogDetail.dataContent.observe(this) {
             tv_title.text = it.data?.title
             tv_content.text = Html.fromHtml(it.data?.content)
-            tv_created_date.text = getConvertTimeStampToDate("1634537607", "dd MMMM")
         }
 
     }

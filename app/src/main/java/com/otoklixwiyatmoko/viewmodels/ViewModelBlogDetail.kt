@@ -3,7 +3,7 @@ package com.otoklixwiyatmoko.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.otoklixwiyatmoko.data.Repository
-import com.otoklixwiyatmoko.model.blogsItem
+import com.otoklixwiyatmoko.model.BlogsItem
 import com.otoklixwiyatmoko.util.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Response
@@ -14,7 +14,7 @@ class ViewModelBlogDetail @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
-    var dataContent: MutableLiveData<NetworkResult<blogsItem>> = MutableLiveData()
+    var dataContent: MutableLiveData<NetworkResult<BlogsItem>> = MutableLiveData()
 
 
     suspend fun getBlogsId(id: Int) {
@@ -22,7 +22,7 @@ class ViewModelBlogDetail @Inject constructor(
         dataContent.value = handleResponseBlogs(response)
     }
 
-    private fun handleResponseBlogs(response: Response<blogsItem>): NetworkResult<blogsItem>? {
+    private fun handleResponseBlogs(response: Response<BlogsItem>): NetworkResult<BlogsItem>? {
         val dataResponse = response.body()
         return if (dataResponse != null) {
 

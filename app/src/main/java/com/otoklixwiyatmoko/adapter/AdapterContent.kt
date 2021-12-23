@@ -11,17 +11,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.otoklixwiyatmoko.R
 import com.otoklixwiyatmoko.activities.ActivityCreateBlog
 import com.otoklixwiyatmoko.activities.MainActivity
-import com.otoklixwiyatmoko.model.blogsItem
+import com.otoklixwiyatmoko.model.BlogsItem
 import kotlinx.android.synthetic.main.item_blog.view.*
 
 class AdapterContent(
     private val context: Context,
-    private var list: ArrayList<blogsItem>
+    private var list: ArrayList<BlogsItem>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var onClickListener: OnClickListener? = null
 
     interface OnClickListener {
-        fun onClick(position: Int, model: blogsItem)
+        fun onClick(position: Int, model: BlogsItem)
 
     }
 

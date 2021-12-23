@@ -1,2 +1,2 @@
 package com.otoklixwiyatmoko.model
-class Result : ArrayList<blogsItem>()
+class Result : ArrayList<BlogsItem>()

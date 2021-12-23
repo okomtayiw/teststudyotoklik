@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.otoklixwiyatmoko.data.Repository
 import com.otoklixwiyatmoko.model.Content
 import com.otoklixwiyatmoko.model.Result
-import com.otoklixwiyatmoko.model.blogsItem
+import com.otoklixwiyatmoko.model.BlogsItem
 import com.otoklixwiyatmoko.util.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Response
@@ -18,7 +18,7 @@ class ContentViewModels @Inject constructor(
 ) : ViewModel() {
 
     var dataContent: MutableLiveData<NetworkResult<Result>> = MutableLiveData()
-    var dataContentDelete: MutableLiveData<NetworkResult<blogsItem>> = MutableLiveData()
+    var dataContentDelete: MutableLiveData<NetworkResult<BlogsItem>> = MutableLiveData()
 
     suspend fun getBlogs() {
         val response = repository.remote.getBlog()
@@ -44,7 +44,7 @@ class ContentViewModels @Inject constructor(
         dataContentDelete.value = handleResponseDelete(response)
     }
 
-    private fun handleResponseDelete(response: Response<blogsItem>): NetworkResult<blogsItem>? {
+    private fun handleResponseDelete(response: Response<BlogsItem>): NetworkResult<BlogsItem>? {
         val dataResponse = response.body()
         return if (dataResponse != null) {
 

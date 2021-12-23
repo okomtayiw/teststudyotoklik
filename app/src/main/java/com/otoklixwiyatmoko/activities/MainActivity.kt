@@ -16,7 +16,7 @@ import com.otoklixwiyatmoko.R
 import com.otoklixwiyatmoko.adapter.AdapterContent
 import com.otoklixwiyatmoko.model.Content
 import com.otoklixwiyatmoko.model.Result
-import com.otoklixwiyatmoko.model.blogsItem
+import com.otoklixwiyatmoko.model.BlogsItem
 import com.otoklixwiyatmoko.util.SwipeToDeleteCallback
 import com.otoklixwiyatmoko.util.SwipeToEditCallback
 import com.otoklixwiyatmoko.viewmodels.ContentViewModels
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             recycle_content_list.adapter = adapter
 
             adapter.setOnclicklistener(object : AdapterContent.OnClickListener {
-                override fun onClick(position: Int, model: blogsItem) {
+                override fun onClick(position: Int, model: BlogsItem) {
                     val intent = Intent(
                         this@MainActivity,
                         ActivityBlogDetail::class.java
@@ -143,7 +143,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun deleteBlogItem(model: blogsItem) {
+    fun deleteBlogItem(model: BlogsItem) {
 
         lifecycleScope.launch {
             contentViewModels.deleteBlog(model.id, Content(model.title, model.content))
